@@ -1,0 +1,18 @@
+{
+  "name": "MeadowlarkTravel",
+  "version": "0.0.0",
+  "description": "node与express开发-代码示例",
+  "main": "meadowlark.js",
+  "author": "guotong",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-handlebars": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "grunt": "^0.4.5",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.3",
+    "mocha": "^2.3.3"
+  }
+}
