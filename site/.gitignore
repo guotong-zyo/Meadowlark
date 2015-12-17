@@ -1,4 +1,4 @@
 #ingore packages install by npm 
 node_modules 
 #put any ohter files you dou't want to check in here,
-#such as .DS_Store(OSX),*.bak,etc.
+#such as .DS_Store(OSX),*.bak,,credentials.js,etc.

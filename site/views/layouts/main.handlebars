@@ -1,39 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title>Meadowlark Travel</title>
+<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+
 {{{_sections.head}}}
 {{#if showTests}}
 	<link rel="stylesheet" type="text/css" href="/vendor/mocha.css">
 {{/if}}
 
-
 </head>
 <body>
-	<header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
-    
+<div class="container">
+   <header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
+   {{#if}}
+   	<div class="alert alert-dismissible alert-{{flash.type}}">
+   		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&time;</button>
+   		<strong>{{flash.intro}}</strong>{{{flash.message}}}
+   	</div>
+   {{/if}}
     {{{body}}}
-    <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
-    {{{_sections.jquery}}}
+</div>
+<script src="/vendor/js/jquery-v1.11.3.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    {{#if showTests}}
-    	<div id="mocha"></div>
-    	<script src="/vendor/mocha.js"></script>
-    	<script src="/vendor/chai.js"></script>
-    	<script>
-    		mocha.ui('tdd');
-    		var assert = chai.assert;
-    	</script>
-    	<script src="/qa/test-golbal.js" ></script>
+{{{_sections.jquery}}}
 
-		{{#if pageTestScript}}
-			<script src="{{pageTestScript}}"></script>
-		{{/if}}
+{{#if showTests}}
+	<div id="mocha"></div>
+	<script src="/vendor/mocha.js"></script>
+	<script src="/vendor/chai.js"></script>
+	<script>
+		mocha.ui('tdd');
+		var assert = chai.assert;
+	</script>
+	<script src="/qa/test-golbal.js" ></script>
 
-		<script>mocha.run()</script>
+	{{#if pageTestScript}}
+		<script src="{{pageTestScript}}"></script>
 	{{/if}}
+
+	<script>mocha.run()</script>
+{{/if}}
 
 </body>
 </html>
