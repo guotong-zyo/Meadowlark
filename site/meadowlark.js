@@ -37,12 +37,25 @@ app.use(express.static(__dirname + '/public'));
 // 加载中间件
 app.use(require('body-parser')());
 
+// 设置cookie
+app.use(require('cookie-parser')(credentials.cookieSecret));
+// 设置会话
+app.use(require('express-session')());
 
-app.use(function(req, res, next){
+
+
+app.use(function (req, res, next){
 	if(!res.locals.partials) res.locals.partials = {};
- 	res.locals.partials.weatherContext = getWeatherData();
+ 	res.locals.partials.weatherContext = weatherData.getWeatherData();
  	next();
 });
+
+app.use(function (req,res,next){
+	// 如果有即显示消息，把它传递到上下文中，然后清除它
+	res.locals.flash = req.session.flash;
+	delete req.session.flash;
+	next();
+})
 
 // setting main router
 app.get('/',function (req,res){
