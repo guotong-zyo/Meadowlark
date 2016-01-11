@@ -1,5 +1,5 @@
 #put any ohter files you dou't want to check in here,
-node_modules
-img
+node_modules/
+img/
 #such as .DS_Store(OSX),*.bak,,credentials.js,etc.
 .DS_Store(OSX),*.bak
